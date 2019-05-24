@@ -1,0 +1,307 @@
+Group {
+ inputs 2
+ name TransformColorTexture
+ tile_color 0xaa55ffff
+ selected true
+ xpos -190
+ ypos 38
+ addUserKnob {20 User}
+ addUserKnob {4 options l Options M {Texture Color Both ""}}
+ addUserKnob {26 ""}
+ addUserKnob {41 translate T Transform1_TCT.translate}
+ addUserKnob {41 rotate T Transform1_TCT.rotate}
+ addUserKnob {41 scale T Transform1_TCT.scale}
+ addUserKnob {41 skewX l "skew X" T Transform1_TCT.skewX}
+ addUserKnob {41 skewY l "skew Y" T Transform1_TCT.skewY}
+ addUserKnob {41 skew_order l "skew order" T Transform1_TCT.skew_order}
+ addUserKnob {41 center T Transform1_TCT.center}
+ addUserKnob {41 invert_matrix l invert T Transform1_TCT.invert_matrix}
+ addUserKnob {41 filter T Transform1_TCT.filter}
+ addUserKnob {41 clamp -STARTLINE T Transform1_TCT.clamp}
+ addUserKnob {41 black_outside l "black outside" -STARTLINE T Transform1_TCT.black_outside}
+ addUserKnob {41 motionblur T Transform1_TCT.motionblur}
+ addUserKnob {41 shutter T Transform1_TCT.shutter}
+ addUserKnob {41 shutteroffset l "shutter offset" T Transform1_TCT.shutteroffset}
+ addUserKnob {41 shuttercustomoffset l "" -STARTLINE T Transform1_TCT.shuttercustomoffset}
+ addUserKnob {26 ""}
+ addUserKnob {41 mix T Merge_TCT.mix}
+ addUserKnob {26 ""}
+ addUserKnob {20 info l Info n 1}
+ info 0
+ addUserKnob {26 inf l "" +STARTLINE T "When the node`s A input is not in use the node will \nuse the information comes on the B input basically \nas a TransformMasked. The A input is useful when \nyou want to use a different plate`s information. "}
+ addUserKnob {20 endGroup n -1}
+ addUserKnob {26 ""}
+ addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">TransformColorTexture© by Attila Gasparetz</font>"}
+}
+ StickyNote {
+  inputs 0
+  name StickyNote4
+  label "options <2 ? 0 : 1"
+  xpos -1151
+  ypos 1070
+ }
+ Input {
+  inputs 0
+  name mask
+  xpos -480
+  ypos 1214
+  number 2
+ }
+ Input {
+  inputs 0
+  name B
+  xpos -1360
+  ypos 374
+ }
+set N2533e5e0 [stack 0]
+ Dot {
+  name Dot2
+  xpos -1326
+  ypos 522
+ }
+set N2f52b400 [stack 0]
+ Dot {
+  name Dot11
+  xpos -1106
+  ypos 522
+ }
+set Ned47ada0 [stack 0]
+ Dot {
+  name Dot5
+  xpos -886
+  ypos 522
+ }
+set N439e9ce0 [stack 0]
+ Dot {
+  name Dot12
+  xpos -666
+  ypos 522
+ }
+ Expression {
+  channel3 alpha
+  expr3 1
+  name Expression_A1_TCT1
+  tile_color 0x666666ff
+  xpos -700
+  ypos 614
+ }
+set Nefffd420 [stack 0]
+ ChannelMerge {
+  inputs 2
+  operation multiply
+  name ChannelMerge
+  tile_color 0x444444ff
+  xpos -700
+  ypos 1202
+  disable {{"!\[exists parent.input2]"}}
+ }
+push $N2533e5e0
+ Input {
+  inputs 0
+  name A
+  xpos -480
+  ypos 278
+  number 1
+ }
+ Switch {
+  inputs 2
+  which {{"!\[exists parent.input1]"}}
+  name Switch1_TCT
+  tile_color 0x666666ff
+  xpos -480
+  ypos 374
+ }
+ Dot {
+  name Dot1
+  xpos -446
+  ypos 522
+ }
+set Nb82d10a0 [stack 0]
+ Dot {
+  name Dot7
+  xpos -226
+  ypos 522
+ }
+set N2b9181b0 [stack 0]
+ Dot {
+  name Dot14
+  xpos -6
+  ypos 522
+ }
+ Transform {
+  translate {{parent.Transform1_TCT.translate} {parent.Transform1_TCT.translate}}
+  rotate {{parent.Transform1_TCT.rotate}}
+  scale {{parent.Transform1_TCT.scale}}
+  skewX {{parent.Transform1_TCT.skewX}}
+  skewY {{parent.Transform1_TCT.skewY}}
+  skew_order {{Transform1_TCT.skew_order}}
+  center {{parent.Transform1_TCT.center} {parent.Transform1_TCT.center}}
+  invert_matrix {{parent.Transform1_TCT.invert_matrix}}
+  filter {{Transform1_TCT.filter}}
+  clamp {{parent.Transform1_TCT.clamp}}
+  black_outside {{parent.Transform1_TCT.black_outside}}
+  motionblur {{parent.Transform1_TCT.motionblur}}
+  shutter {{parent.Transform1_TCT.shutter}}
+  shutteroffset {{Transform1_TCT.shutteroffset}}
+  name Transform3_TCT
+  tile_color 0x666666ff
+  label "\[value skew_order]\n\[value filter]\n\[value shutteroffset]"
+  xpos -40
+  ypos 740
+ }
+ Dot {
+  name Dot4
+  xpos -6
+  ypos 1026
+ }
+push $Nefffd420
+push $N2b9181b0
+ Blur {
+  size 30
+  name Blur_TCT2
+  tile_color 0x666666ff
+  xpos -260
+  ypos 608
+ }
+set N77005640 [stack 0]
+ Transform {
+  translate {{parent.Transform1_TCT.translate} {parent.Transform1_TCT.translate}}
+  rotate {{parent.Transform1_TCT.rotate}}
+  scale {{parent.Transform1_TCT.scale}}
+  skewX {{parent.Transform1_TCT.skewX}}
+  skewY {{parent.Transform1_TCT.skewY}}
+  skew_order {{Transform1_TCT.skew_order}}
+  center {{parent.Transform1_TCT.center} {parent.Transform1_TCT.center}}
+  invert_matrix {{parent.Transform1_TCT.invert_matrix}}
+  filter {{Transform1_TCT.filter}}
+  clamp {{parent.Transform1_TCT.clamp}}
+  black_outside {{parent.Transform1_TCT.black_outside}}
+  motionblur {{parent.Transform1_TCT.motionblur}}
+  shutter {{parent.Transform1_TCT.shutter}}
+  shutteroffset {{Transform1_TCT.shutteroffset}}
+  name Transform2_TCT
+  tile_color 0x666666ff
+  label "\[value skew_order]\n\[value filter]\n\[value shutteroffset]"
+  xpos -260
+  ypos 740
+ }
+push $N439e9ce0
+ Blur {
+  size 30
+  name Blur_TCT1
+  tile_color 0x666666ff
+  xpos -920
+  ypos 608
+ }
+set N34de6240 [stack 0]
+ Keymix {
+  inputs 3
+  name Keymix2_TCT
+  tile_color 0x666666ff
+  xpos -920
+  ypos 752
+  disable {{"options == 1 ? 0 : 1"}}
+ }
+ Dot {
+  name Dot13
+  xpos -886
+  ypos 882
+ }
+push $Nefffd420
+push $Nb82d10a0
+push $N77005640
+ Merge2 {
+  inputs 2
+  operation divide
+  name MergeDiv_TCT2
+  tile_color 0x666666ff
+  xpos -480
+  ypos 614
+ }
+ Transform {
+  center {2048 1152}
+  shutteroffset centred
+  name Transform1_TCT
+  tile_color 0x666666ff
+  label "\[value skew_order]\n\[value filter]\n\[value shutteroffset]"
+  xpos -480
+  ypos 740
+ }
+push $Ned47ada0
+push $N34de6240
+ Merge2 {
+  inputs 2
+  operation divide
+  name MergeDiv_TCT1
+  tile_color 0x666666ff
+  xpos -1140
+  ypos 614
+ }
+ Keymix {
+  inputs 3
+  name Keymix1_TCT
+  tile_color 0x666666ff
+  xpos -1140
+  ypos 752
+  disable {{"options == 0 ? 0 : 1"}}
+ }
+ Merge2 {
+  inputs 2
+  operation multiply
+  name MergeMult_TCT1
+  tile_color 0x666666ff
+  xpos -1140
+  ypos 878
+ }
+ Switch {
+  inputs 2
+  which {{"options <2 ? 0 : 1"}}
+  name Switch_TCT
+  tile_color 0x666666ff
+  xpos -1140
+  ypos 1022
+ }
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy_TCT
+  tile_color 0x666666ff
+  xpos -1140
+  ypos 1208
+ }
+ Premult {
+  name Premult_TCT
+  tile_color 0x666666ff
+  xpos -1140
+  ypos 1334
+ }
+push $N2f52b400
+ Merge2 {
+  inputs 2
+  name Merge_TCT
+  tile_color 0x666666ff
+  xpos -1360
+  ypos 1334
+ }
+ Output {
+  name Output1
+  xpos -1360
+  ypos 1526
+ }
+ StickyNote {
+  inputs 0
+  name StickyNote3
+  label "options == 0 ? 0 : 1"
+  xpos -1156
+  ypos 806
+ }
+ StickyNote {
+  inputs 0
+  name StickyNote1
+  label "options == 1 ? 0 : 1"
+  xpos -936
+  ypos 806
+ }
+end_group
