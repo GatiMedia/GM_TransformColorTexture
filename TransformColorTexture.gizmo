@@ -1,10 +1,10 @@
+
 Group {
- inputs 2
  name TransformColorTexture
  tile_color 0xaa55ffff
  selected true
- xpos -190
- ypos 38
+ xpos -40
+ ypos 542
  addUserKnob {20 User}
  addUserKnob {4 options l Options M {Texture Color Both ""}}
  addUserKnob {26 ""}
@@ -23,6 +23,8 @@ Group {
  addUserKnob {41 shutter T Transform1_TCT.shutter}
  addUserKnob {41 shutteroffset l "shutter offset" T Transform1_TCT.shutteroffset}
  addUserKnob {41 shuttercustomoffset l "" -STARTLINE T Transform1_TCT.shuttercustomoffset}
+ addUserKnob {26 ""}
+ addUserKnob {41 from0 l "mask channel" T Copy_TCT.from0}
  addUserKnob {26 ""}
  addUserKnob {41 mix T Merge_TCT.mix}
  addUserKnob {26 ""}
@@ -54,25 +56,25 @@ Group {
   xpos -1360
   ypos 374
  }
-set N2533e5e0 [stack 0]
+set N2cb87890 [stack 0]
  Dot {
   name Dot2
   xpos -1326
   ypos 522
  }
-set N2f52b400 [stack 0]
+set N2cb6f330 [stack 0]
  Dot {
   name Dot11
   xpos -1106
   ypos 522
  }
-set Ned47ada0 [stack 0]
+set N36cf7040 [stack 0]
  Dot {
   name Dot5
   xpos -886
   ypos 522
  }
-set N439e9ce0 [stack 0]
+set N2c07bf40 [stack 0]
  Dot {
   name Dot12
   xpos -666
@@ -86,7 +88,7 @@ set N439e9ce0 [stack 0]
   xpos -700
   ypos 614
  }
-set Nefffd420 [stack 0]
+set N3299e660 [stack 0]
  ChannelMerge {
   inputs 2
   operation multiply
@@ -96,7 +98,7 @@ set Nefffd420 [stack 0]
   ypos 1202
   disable {{"!\[exists parent.input2]"}}
  }
-push $N2533e5e0
+push $N2cb87890
  Input {
   inputs 0
   name A
@@ -117,13 +119,13 @@ push $N2533e5e0
   xpos -446
   ypos 522
  }
-set Nb82d10a0 [stack 0]
+set N2e759d10 [stack 0]
  Dot {
   name Dot7
   xpos -226
   ypos 522
  }
-set N2b9181b0 [stack 0]
+set Nd338d40 [stack 0]
  Dot {
   name Dot14
   xpos -6
@@ -155,8 +157,8 @@ set N2b9181b0 [stack 0]
   xpos -6
   ypos 1026
  }
-push $Nefffd420
-push $N2b9181b0
+push $N3299e660
+push $Nd338d40
  Blur {
   size 30
   name Blur_TCT2
@@ -164,14 +166,14 @@ push $N2b9181b0
   xpos -260
   ypos 608
  }
-set N77005640 [stack 0]
+set N32018d10 [stack 0]
  Transform {
   translate {{parent.Transform1_TCT.translate} {parent.Transform1_TCT.translate}}
   rotate {{parent.Transform1_TCT.rotate}}
   scale {{parent.Transform1_TCT.scale}}
   skewX {{parent.Transform1_TCT.skewX}}
   skewY {{parent.Transform1_TCT.skewY}}
-  skew_order {{Transform1_TCT.skew_order}}
+  skew_order {{Transform1_TCT.skew_order x1028 1}}
   center {{parent.Transform1_TCT.center} {parent.Transform1_TCT.center}}
   invert_matrix {{parent.Transform1_TCT.invert_matrix}}
   filter {{Transform1_TCT.filter}}
@@ -183,10 +185,11 @@ set N77005640 [stack 0]
   name Transform2_TCT
   tile_color 0x666666ff
   label "\[value skew_order]\n\[value filter]\n\[value shutteroffset]"
+  selected true
   xpos -260
   ypos 740
  }
-push $N439e9ce0
+push $N2c07bf40
  Blur {
   size 30
   name Blur_TCT1
@@ -194,7 +197,7 @@ push $N439e9ce0
   xpos -920
   ypos 608
  }
-set N34de6240 [stack 0]
+set N2cb97b80 [stack 0]
  Keymix {
   inputs 3
   name Keymix2_TCT
@@ -208,9 +211,9 @@ set N34de6240 [stack 0]
   xpos -886
   ypos 882
  }
-push $Nefffd420
-push $Nb82d10a0
-push $N77005640
+push $N3299e660
+push $N2e759d10
+push $N32018d10
  Merge2 {
   inputs 2
   operation divide
@@ -228,8 +231,8 @@ push $N77005640
   xpos -480
   ypos 740
  }
-push $Ned47ada0
-push $N34de6240
+push $N36cf7040
+push $N2cb97b80
  Merge2 {
   inputs 2
   operation divide
@@ -277,7 +280,7 @@ push $N34de6240
   xpos -1140
   ypos 1334
  }
-push $N2f52b400
+push $N2cb6f330
  Merge2 {
   inputs 2
   name Merge_TCT
