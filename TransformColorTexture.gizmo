@@ -1,11 +1,12 @@
 Group {
  name TransformColorTexture
  tile_color 0xaa55ffff
+ label "\[value options]"
  selected true
- xpos -40
- ypos 542
+ xpos -370
+ ypos 416
  addUserKnob {20 User}
- addUserKnob {4 options l Options M {Texture Color Both ""}}
+ addUserKnob {4 options l Options M {Texture Color Both "" "" "" "" "" "" ""}}
  addUserKnob {26 ""}
  addUserKnob {41 translate T Transform1_TCT.translate}
  addUserKnob {41 rotate T Transform1_TCT.rotate}
@@ -27,9 +28,9 @@ Group {
  addUserKnob {26 ""}
  addUserKnob {41 mix T Merge_TCT.mix}
  addUserKnob {26 ""}
- addUserKnob {20 info l Info n 1}
+ addUserKnob {20 info n 1}
  info 0
- addUserKnob {26 inf l "" +STARTLINE T "When the node`s A input is not in use the node will \nuse the information comes on the B input basically \nas a TransformMasked. The A input is useful when \nyou want to use a different plate`s information. "}
+ addUserKnob {26 inf l "" +STARTLINE T "When the node`s A input is not in use the node will \nuse the information comes on the B input."}
  addUserKnob {20 endGroup n -1}
  addUserKnob {26 ""}
  addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
@@ -55,25 +56,25 @@ Group {
   xpos -1360
   ypos 374
  }
-set N2cb87890 [stack 0]
+set N6cc2c90 [stack 0]
  Dot {
   name Dot2
   xpos -1326
   ypos 522
  }
-set N2cb6f330 [stack 0]
+set N6cc74a0 [stack 0]
  Dot {
   name Dot11
   xpos -1106
   ypos 522
  }
-set N36cf7040 [stack 0]
+set N6ccbca0 [stack 0]
  Dot {
   name Dot5
   xpos -886
   ypos 522
  }
-set N2c07bf40 [stack 0]
+set N6cd0550 [stack 0]
  Dot {
   name Dot12
   xpos -666
@@ -87,7 +88,7 @@ set N2c07bf40 [stack 0]
   xpos -700
   ypos 614
  }
-set N3299e660 [stack 0]
+set N6cd9640 [stack 0]
  ChannelMerge {
   inputs 2
   operation multiply
@@ -97,7 +98,7 @@ set N3299e660 [stack 0]
   ypos 1202
   disable {{"!\[exists parent.input2]"}}
  }
-push $N2cb87890
+push $N6cc2c90
  Input {
   inputs 0
   name A
@@ -118,13 +119,13 @@ push $N2cb87890
   xpos -446
   ypos 522
  }
-set N2e759d10 [stack 0]
+set N6cffad0 [stack 0]
  Dot {
   name Dot7
   xpos -226
   ypos 522
  }
-set Nd338d40 [stack 0]
+set N6d04210 [stack 0]
  Dot {
   name Dot14
   xpos -6
@@ -156,8 +157,8 @@ set Nd338d40 [stack 0]
   xpos -6
   ypos 1026
  }
-push $N3299e660
-push $Nd338d40
+push $N6cd9640
+push $N6d04210
  Blur {
   size 30
   name Blur_TCT2
@@ -165,14 +166,14 @@ push $Nd338d40
   xpos -260
   ypos 608
  }
-set N32018d10 [stack 0]
+set N6d21960 [stack 0]
  Transform {
   translate {{parent.Transform1_TCT.translate} {parent.Transform1_TCT.translate}}
   rotate {{parent.Transform1_TCT.rotate}}
   scale {{parent.Transform1_TCT.scale}}
   skewX {{parent.Transform1_TCT.skewX}}
   skewY {{parent.Transform1_TCT.skewY}}
-  skew_order {{Transform1_TCT.skew_order x1028 1}}
+  skew_order {{parent.Transform1_TCT.skew_order}}
   center {{parent.Transform1_TCT.center} {parent.Transform1_TCT.center}}
   invert_matrix {{parent.Transform1_TCT.invert_matrix}}
   filter {{Transform1_TCT.filter}}
@@ -184,11 +185,10 @@ set N32018d10 [stack 0]
   name Transform2_TCT
   tile_color 0x666666ff
   label "\[value skew_order]\n\[value filter]\n\[value shutteroffset]"
-  selected true
   xpos -260
   ypos 740
  }
-push $N2c07bf40
+push $N6cd0550
  Blur {
   size 30
   name Blur_TCT1
@@ -196,7 +196,7 @@ push $N2c07bf40
   xpos -920
   ypos 608
  }
-set N2cb97b80 [stack 0]
+set N6d3e780 [stack 0]
  Keymix {
   inputs 3
   name Keymix2_TCT
@@ -210,9 +210,9 @@ set N2cb97b80 [stack 0]
   xpos -886
   ypos 882
  }
-push $N3299e660
-push $N2e759d10
-push $N32018d10
+push $N6cd9640
+push $N6cffad0
+push $N6d21960
  Merge2 {
   inputs 2
   operation divide
@@ -227,11 +227,12 @@ push $N32018d10
   name Transform1_TCT
   tile_color 0x666666ff
   label "\[value skew_order]\n\[value filter]\n\[value shutteroffset]"
+  selected true
   xpos -480
   ypos 740
  }
-push $N36cf7040
-push $N2cb97b80
+push $N6ccbca0
+push $N6d3e780
  Merge2 {
   inputs 2
   operation divide
@@ -279,7 +280,7 @@ push $N2cb97b80
   xpos -1140
   ypos 1334
  }
-push $N2cb6f330
+push $N6cc74a0
  Merge2 {
   inputs 2
   name Merge_TCT
