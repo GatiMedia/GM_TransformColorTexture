@@ -1,5 +1,5 @@
 Group {
- name TransformColorTexture1
+ name TransformColorTexture
  tile_color 0xaa55ffff
  label "\[value options]"
  selected true
