@@ -3,10 +3,13 @@ Group {
  tile_color 0xaa55ffff
  label "\[value options]"
  selected true
- xpos 1737
- ypos 281
+ xpos -370
+ ypos 728
  addUserKnob {20 User}
  addUserKnob {4 options l Options M {Texture Color Both "" "" "" "" "" "" ""}}
+ addUserKnob {26 "" +STARTLINE}
+ addUserKnob {41 size l "over separation" t "Allows you to adjust the texture/color separation on the layer that goes over the other one." T Blur_TCT2.size}
+ addUserKnob {41 size_1 l "under separation" t "Allows you to adjust the texture/color separation on the layer that goes under the other one." T Blur_TCT1.size}
  addUserKnob {26 ""}
  addUserKnob {41 translate T Transform1_TCT.translate}
  addUserKnob {41 rotate T Transform1_TCT.rotate}
@@ -56,25 +59,25 @@ Group {
   xpos -1360
   ypos 374
  }
-set Nb30c8380 [stack 0]
+set N6b99180 [stack 0]
  Dot {
   name Dot2
   xpos -1326
   ypos 522
  }
-set Na131c700 [stack 0]
+set N6b9d990 [stack 0]
  Dot {
   name Dot11
   xpos -1106
   ypos 522
  }
-set Nccd9ce00 [stack 0]
+set N6ba2190 [stack 0]
  Dot {
   name Dot5
   xpos -886
   ypos 522
  }
-set Nb892ee00 [stack 0]
+set N6ba6a40 [stack 0]
  Dot {
   name Dot12
   xpos -666
@@ -85,20 +88,22 @@ set Nb892ee00 [stack 0]
   expr3 1
   name Expression_A1_TCT1
   tile_color 0x666666ff
+  label "a: \[value expr3]"
   xpos -700
-  ypos 614
+  ypos 608
  }
-set Nb30c8e00 [stack 0]
+set N6bafb30 [stack 0]
  ChannelMerge {
   inputs 2
   operation multiply
   name ChannelMerge
   tile_color 0x444444ff
+  label "\[value disable]"
   xpos -700
-  ypos 1202
+  ypos 1196
   disable {{"!\[exists parent.input2]"}}
  }
-push $Nb30c8380
+push $N6b99180
  Input {
   inputs 0
   name A
@@ -111,21 +116,22 @@ push $Nb30c8380
   which {{"!\[exists parent.input1]"}}
   name Switch1_TCT
   tile_color 0x666666ff
+  label "which: \[value which]"
   xpos -480
-  ypos 374
+  ypos 368
  }
  Dot {
   name Dot1
   xpos -446
   ypos 522
  }
-set N9cc62a80 [stack 0]
+set N6bd6060 [stack 0]
  Dot {
   name Dot7
   xpos -226
   ypos 522
  }
-set Nc05ac700 [stack 0]
+set N6bda7a0 [stack 0]
  Dot {
   name Dot14
   xpos -6
@@ -157,16 +163,17 @@ set Nc05ac700 [stack 0]
   xpos -6
   ypos 1026
  }
-push $Nb30c8e00
-push $Nc05ac700
+push $N6bafb30
+push $N6bda7a0
  Blur {
   size 30
   name Blur_TCT2
   tile_color 0x666666ff
+  label "size: \[value size]"
   xpos -260
-  ypos 608
+  ypos 602
  }
-set N68d38700 [stack 0]
+set N6bf7ef0 [stack 0]
  Transform {
   translate {{parent.Transform1_TCT.translate} {parent.Transform1_TCT.translate}}
   rotate {{parent.Transform1_TCT.rotate}}
@@ -188,7 +195,7 @@ set N68d38700 [stack 0]
   xpos -260
   ypos 740
  }
-push $Nb892ee00
+push $N6ba6a40
  Blur {
   size 30
   name Blur_TCT1
@@ -196,7 +203,7 @@ push $Nb892ee00
   xpos -920
   ypos 608
  }
-set N9ccb1180 [stack 0]
+set N6c14d70 [stack 0]
  Keymix {
   inputs 3
   name Keymix2_TCT
@@ -210,9 +217,9 @@ set N9ccb1180 [stack 0]
   xpos -886
   ypos 882
  }
-push $Nb30c8e00
-push $N9cc62a80
-push $N68d38700
+push $N6bafb30
+push $N6bd6060
+push $N6bf7ef0
  Merge2 {
   inputs 2
   operation divide
@@ -222,17 +229,17 @@ push $N68d38700
   ypos 614
  }
  Transform {
+  scale {1 1}
   center {2048 1152}
   shutteroffset centred
   name Transform1_TCT
   tile_color 0x666666ff
   label "\[value skew_order]\n\[value filter]\n\[value shutteroffset]"
-  selected true
   xpos -480
   ypos 740
  }
-push $Nccd9ce00
-push $N9ccb1180
+push $N6ba2190
+push $N6c14d70
  Merge2 {
   inputs 2
   operation divide
@@ -262,8 +269,9 @@ push $N9ccb1180
   which {{"options <2 ? 0 : 1"}}
   name Switch_TCT
   tile_color 0x666666ff
+  label "which: \[value which]"
   xpos -1140
-  ypos 1022
+  ypos 1016
  }
  Copy {
   inputs 2
@@ -280,7 +288,7 @@ push $N9ccb1180
   xpos -1140
   ypos 1334
  }
-push $Na131c700
+push $N6b9d990
  Merge2 {
   inputs 2
   name Merge_TCT
