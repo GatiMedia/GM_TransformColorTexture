@@ -1,5 +1,5 @@
 Group {
- name TransformColorTexture
+ name GM_TransformColorTexture
  tile_color 0xaa55ffff
  label "\[value options]"
  selected true
@@ -37,7 +37,7 @@ Group {
  addUserKnob {20 endGroup n -1}
  addUserKnob {26 ""}
  addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.01 version</font>"}
- addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">TransformColorTexture© by Attila Gasparetz</font>"}
+ addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_TransformColorTexture© by Attila Gasparetz</font>"}
 }
  StickyNote {
   inputs 0
