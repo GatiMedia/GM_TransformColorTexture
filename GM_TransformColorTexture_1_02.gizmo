@@ -43,27 +43,6 @@ addUserKnob {26 ""}
 addUserKnob {26 TEXT l "" +STARTLINE T "<font color=#808080 size=\"5\" >1.02 version</font>"}
 addUserKnob {26 HeadlineB l "" +STARTLINE T "<font color=#808080 size=\"2\">GM_TransformColorTexture© by Attila Gasparetz</font>"}
 }
-StickyNote {
-inputs 0
-name StickyNote4
-label "options <2 ? 0 : 1"
-xpos -1149
-ypos 1071
-}
-StickyNote {
-inputs 0
-name StickyNote3
-label "options == 0 ? 0 : 1"
-xpos -1153
-ypos 807
-}
-StickyNote {
-inputs 0
-name StickyNote1
-label "options == 1 ? 0 : 1"
-xpos -933
-ypos 807
-}
 Input {
 inputs 0
 name B
@@ -311,7 +290,6 @@ inputs 2
 operation multiply
 name MergeMult_TCT1
 tile_color 0x666666ff
-selected true
 xpos -1140
 ypos 879
 }
@@ -420,5 +398,26 @@ name Crop_proxy_TCT
 tile_color 0x555555ff
 xpos -260
 ypos 375
+}
+StickyNote {
+inputs 0
+name StickyNote3
+label "output == 0 ? 0 : 1"
+xpos -1153
+ypos 807
+}
+StickyNote {
+inputs 0
+name StickyNote1
+label "output == 1 ? 0 : 1"
+xpos -933
+ypos 807
+}
+StickyNote {
+inputs 0
+name StickyNote4
+label "output <2 ? 0 : 1"
+xpos -1149
+ypos 1071
 }
 end_group
