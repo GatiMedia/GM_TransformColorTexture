@@ -1,4 +1,5 @@
 Group {
+ inputs 2
  name GM_TransformColorTexture
  tile_color 0xaa55ffff
  addUserKnob {20 User}
@@ -15,7 +16,7 @@ Group {
  addUserKnob {41 skewY l "skew Y" T Transform1_TCT.skewY}
  addUserKnob {41 skew_order l "skew order" T Transform1_TCT.skew_order}
  addUserKnob {41 center T Transform1_TCT.center}
- addUserKnob {22 setcenter l "Set Center" T "this_width = nuke.thisGroup().width()\n\nthis_height = nuke.thisGroup().height()\n\nnewWidth = this_width/2\nnewHeight = this_height/2\n\nnuke.thisGroup().knob(\"center\").setValue(\[newWidth, newHeight])" +STARTLINE}
+ addUserKnob {22 setcenter l "Set Center" -STARTLINE T "this_width = nuke.thisGroup().width()\n\nthis_height = nuke.thisGroup().height()\n\nnewWidth = this_width/2\nnewHeight = this_height/2\n\nnuke.thisGroup().knob(\"center\").setValue(\[newWidth, newHeight])"}
  addUserKnob {41 invert_matrix l invert T Transform1_TCT.invert_matrix}
  addUserKnob {41 filter T Transform1_TCT.filter}
  addUserKnob {41 clamp -STARTLINE T Transform1_TCT.clamp}
@@ -47,7 +48,7 @@ Group {
   xpos -1360
   ypos 375
  }
-set N2086d2b0 [stack 0]
+set Nb20bfc00 [stack 0]
  Input {
   inputs 0
   name A
@@ -64,13 +65,13 @@ set N2086d2b0 [stack 0]
   xpos -480
   ypos 369
  }
-set N208761d0 [stack 0]
+set Nb20bf500 [stack 0]
  Dot {
   name Dot1
   xpos -446
   ypos 522
  }
-set N2087de40 [stack 0]
+set Nb20bf180 [stack 0]
  Dot {
   name Dot3
   tile_color 0x949494ff
@@ -107,25 +108,25 @@ set N2087de40 [stack 0]
   ypos 1215
   number 2
  }
-push $N2086d2b0
+push $Nb20bfc00
  Dot {
   name Dot2
   xpos -1326
   ypos 522
  }
-set N2089b690 [stack 0]
+set Nb20be380 [stack 0]
  Dot {
   name Dot11
   xpos -1106
   ypos 522
  }
-set N2089ff10 [stack 0]
+set Nb20be000 [stack 0]
  Dot {
   name Dot5
   xpos -886
   ypos 522
  }
-set N208a4850 [stack 0]
+set Nb20dfc00 [stack 0]
  Dot {
   name Dot12
   xpos -666
@@ -140,24 +141,25 @@ set N208a4850 [stack 0]
   xpos -700
   ypos 609
  }
-set N208ad960 [stack 0]
+set Nb20df500 [stack 0]
  ChannelMerge {
   inputs 2
   operation multiply
   name ChannelMerge
   tile_color 0x444444ff
   label "\[value disable]"
+  selected true
   xpos -700
   ypos 1196
   disable {{"!\[exists parent.input2]"}}
  }
-push $N2087de40
+push $Nb20bf180
  Dot {
   name Dot7
   xpos -226
   ypos 522
  }
-set N208c78d0 [stack 0]
+set Nb20dea80 [stack 0]
  Dot {
   name Dot14
   xpos -6
@@ -181,7 +183,6 @@ set N208c78d0 [stack 0]
   name Transform3_TCT
   tile_color 0x666666ff
   label "\[value skew_order]\n\[value filter]\n\[value shutteroffset]"
-  selected true
   xpos -40
   ypos 740
  }
@@ -190,8 +191,8 @@ set N208c78d0 [stack 0]
   xpos -6
   ypos 1026
  }
-push $N208ad960
-push $N208c78d0
+push $Nb20df500
+push $Nb20dea80
  Blur {
   size 30
   name Blur_TCT2
@@ -200,7 +201,7 @@ push $N208c78d0
   xpos -260
   ypos 603
  }
-set N208e5240 [stack 0]
+set Nb2115c00 [stack 0]
  Transform {
   translate {{parent.Transform1_TCT.translate} {parent.Transform1_TCT.translate}}
   rotate {{parent.Transform1_TCT.rotate}}
@@ -222,7 +223,7 @@ set N208e5240 [stack 0]
   xpos -260
   ypos 740
  }
-push $N208a4850
+push $Nb20dfc00
  Blur {
   size 30
   name Blur_TCT1
@@ -230,7 +231,7 @@ push $N208a4850
   xpos -920
   ypos 609
  }
-set N20902060 [stack 0]
+set Nb2115500 [stack 0]
  Keymix {
   inputs 3
   name Keymix2_TCT
@@ -244,9 +245,9 @@ set N20902060 [stack 0]
   xpos -886
   ypos 882
  }
-push $N208ad960
-push $N2087de40
-push $N208e5240
+push $Nb20df500
+push $Nb20bf180
+push $Nb2115c00
  Merge2 {
   inputs 2
   operation divide
@@ -266,8 +267,8 @@ push $N208e5240
   xpos -480
   ypos 740
  }
-push $N2089ff10
-push $N20902060
+push $Nb20be000
+push $Nb2115500
  Merge2 {
   inputs 2
   operation divide
@@ -316,7 +317,7 @@ push $N20902060
   xpos -1140
   ypos 1335
  }
-set N20977ea0 [stack 0]
+set Nb2145180 [stack 0]
  ChannelMerge {
   inputs 2
   operation multiply
@@ -325,7 +326,7 @@ set N20977ea0 [stack 0]
   xpos -1140
   ypos 1419
  }
-push $N2089b690
+push $Nb20be380
  Dot {
   name Dot6
   tile_color 0x949494ff
@@ -334,7 +335,7 @@ push $N2089b690
   xpos -1326
   ypos 1218
  }
-set N2098c1b0 [stack 0]
+set Nb2144a80 [stack 0]
  Dot {
   name Dot8
   tile_color 0x949494ff
@@ -358,8 +359,8 @@ set N2098c1b0 [stack 0]
   xpos -1546
   ypos 1530
  }
-push $N20977ea0
-push $N2098c1b0
+push $Nb2145180
+push $Nb2144a80
  Merge2 {
   inputs 2
   also_merge all
@@ -390,7 +391,7 @@ push $N2098c1b0
   xpos -1360
   ypos 1743
  }
-push $N208761d0
+push $Nb20bf500
  Crop {
   box {{input.format.x} {input.format.y} {input.width} {input.height}}
   name Crop_proxy_TCT
